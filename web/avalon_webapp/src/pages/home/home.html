@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Welcome to Avalon
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-content>
+        Please enter your details before entering the wonderfull world of avalon!
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="lastName"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full (click)="continue()">
+    <ion-icon name="checkmark"></ion-icon>
+    &nbsp; Continue
+  </button>
+
+</ion-content>
