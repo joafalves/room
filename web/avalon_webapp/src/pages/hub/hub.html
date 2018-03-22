@@ -1,16 +1,31 @@
 <ion-header>
-    <ion-navbar>
-      <ion-title>
-        Avalon
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
+<ion-navbar>
+  <ion-title>
+    Avalon Game Hub
+  </ion-title>
+  <ion-buttons end>
+    <button ion-button icon-only (click)="presentActionSheet()">
+      <ion-icon name="md-options"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
+</ion-header>
+
 <ion-content padding>
     <ion-card>
-      <button ion-button full (click)="presentActionSheet()">Options</button>
-
       <ion-list>
-
+        <ion-list-header>
+          Game Rooms
+        </ion-list-header>
+        <button ion-item>
+          Room #1
+        </button>
+        <button ion-item>
+          Room #2
+        </button>
+        <button ion-item>
+          Room #3
+        </button>
       </ion-list>
     </ion-card>
 </ion-content>
