@@ -6,6 +6,9 @@ import { ConnectionService } from './services/ConnectionService';
 import { Events } from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
+import { HubPage } from '../pages/hub/hub';
+import { AddRoomPage } from '../pages/add-room/add-room';
+
 @Component({
   templateUrl: 'app.html'
 })

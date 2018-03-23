@@ -1,0 +1,68 @@
+<!--
+  Generated template for the GamePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Welcome to {{roomData.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        Commands
+      </ion-list-header>
+      <button ion-item (click)="restartGame()">
+        <ion-icon name="md-refresh" item-start></ion-icon>
+        Restart Game
+      </button>
+      <button ion-item (click)="joinRoom()" *ngIf="!roomData.joined">
+        <ion-icon name="md-add" item-start ></ion-icon>
+        Join Game
+      </button>
+      <button ion-item (click)="leaveRoom()" *ngIf="roomData.joined">
+        <ion-icon name="md-remove" item-start ></ion-icon>
+        Leave Game
+      </button>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        Game Information
+      </ion-list-header>
+    </ion-list>
+    <ion-item-group>
+      <ion-item *ngIf="roleDetails == null">The game has not yet started</ion-item>
+      <ion-item *ngIf="roleDetails != null">
+        <p>You are {{roleDetails.roleName}}.</p>
+        <p>{{roleDetails.roleInfo}}</p>
+      </ion-item>
+    </ion-item-group>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        Players in Game Room ({{activePlayersCount() + "/" + roomData.players.length}})
+      </ion-list-header>
+    </ion-list>
+    <ion-item-group>
+      <ion-item *ngIf="roomData.players.length == 0">No players have joined yet</ion-item>
+      <ion-item *ngFor="let player of roomData.players">
+        <ion-icon name="ios-checkmark-circle-outline" *ngIf="player.characterId == null" item-start></ion-icon>
+        <ion-icon name="md-checkmark-circle" *ngIf="player.characterId != null" item-start></ion-icon>
+        {{player.name}}
+      </ion-item>
+    </ion-item-group>
+  </ion-card>
+
+</ion-content>

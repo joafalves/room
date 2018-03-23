@@ -17,14 +17,8 @@
         <ion-list-header>
           Game Rooms
         </ion-list-header>
-        <button ion-item>
-          Room #1
-        </button>
-        <button ion-item>
-          Room #2
-        </button>
-        <button ion-item>
-          Room #3
+        <button ion-item *ngFor="let room of roomData" (click)="enterRoom(room)">
+          {{ room.name }}
         </button>
       </ion-list>
     </ion-card>

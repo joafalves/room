@@ -17,11 +17,15 @@ public class SessionManager {
     }
 
     public void addOrUpdateSession(String sid, String firstName, String lastName) {
-        SessionData sessionData = new SessionData(firstName, lastName);
+        SessionData sessionData = new SessionData(sid, firstName, lastName);
         this.sessions.put(sid, sessionData);
     }
 
     public boolean removeSession(String sid) {
         return this.sessions.remove(sid) != null;
+    }
+
+    public SessionData getSession(String sid) {
+        return this.sessions.get(sid);
     }
 }
