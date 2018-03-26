@@ -13,8 +13,8 @@ export class HomePage {
   loading:Loading;
 
   constructor(public navCtrl: NavController, public connectionSrv: ConnectionService, public loadingCtrl: LoadingController, private toastCtrl: ToastController, private events: Events) {
-    this.firstName = "João";
-    this.lastName = "Alves";
+    this.firstName = localStorage.getItem("avalon_fn") || "";
+    this.lastName = localStorage.getItem("avalon_ln") || "";
 
     this.events.subscribe("greeting", (success) => {
       this.loading.dismiss();
@@ -37,6 +37,9 @@ export class HomePage {
       toast.present();
       return;
     }
+
+    localStorage.setItem("avalon_fn", this.firstName);
+    localStorage.setItem("avalon_ln", this.lastName);
 
     this.presentLoading();
     this.connectionSrv.sendHello(this.firstName, this.lastName);

@@ -12,6 +12,7 @@ public class Room {
 
     private String name = "";
     private String creatorId = "";
+    private Integer sessionId = 0;
     private ConcurrentHashMap<String, PlayerData> players = new ConcurrentHashMap<>();
 
     public boolean assignCharacters() {
@@ -94,6 +95,8 @@ public class Room {
 
         // shuffle the order:
         Collections.shuffle(availableCharacters);
+
+        this.sessionId += 1;
 
         // assign the characters:
         int count = 0;
@@ -191,4 +194,11 @@ public class Room {
     }
 
 
+    public Integer getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(Integer sessionId) {
+        this.sessionId = sessionId;
+    }
 }

@@ -7,6 +7,7 @@ public class RoomPublicData {
     private String name;
     private Boolean owner;
     private Boolean joined;
+    private Integer sessionId;
     private List<PlayerData> players = new ArrayList<>();
 
     public String getName() {
@@ -41,6 +42,7 @@ public class RoomPublicData {
         RoomPublicData roomPublicData = new RoomPublicData();
         roomPublicData.setName(room.getName());
         roomPublicData.setPlayers(room.getPlayers());
+        roomPublicData.setSessionId(room.getSessionId());
 
         return roomPublicData;
     }
@@ -51,5 +53,13 @@ public class RoomPublicData {
 
     public void setJoined(Boolean joined) {
         this.joined = joined;
+    }
+
+    public Integer getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(Integer sessionId) {
+        this.sessionId = sessionId;
     }
 }
